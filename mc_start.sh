@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# Settings
 USERNAME='minecraft'
 SERVICE='minecraft_server.jar'
+MAX_MEM=1024
+MIN_MEM=1024
+
+
 
 cd /opt/minecraft
 
@@ -13,7 +18,7 @@ if [ $ME == $USERNAME ] ; then
       echo "$SERVICE is already running!"
     else
       echo "Starting $SERVICE..."
-      screen -AmdS minecraft java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui
+      screen -AmdS minecraft java -Xmx${MAX_MEM}M -Xms${MIN_MEM}M -jar $SERVICE nogui
     fi
   else
     echo "Please run the minecraft user."
